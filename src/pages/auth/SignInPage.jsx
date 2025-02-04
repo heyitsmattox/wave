@@ -1,7 +1,19 @@
+import AuthForm from "./AuthForm";
 const SignInPage = () => {
   return (
     <>
-      <div>Sign in Page</div>
+      <AuthForm 
+      fields={[
+        {
+          label: 'username',
+          type: 'text',
+        },
+        {
+          label: 'password',
+          type: 'password',
+        }
+      ]}
+      />
     </>
   )
 

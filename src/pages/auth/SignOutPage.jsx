@@ -1,8 +1,23 @@
-
+import AuthForm from "./AuthForm";
 const SignOutPage = () => {
   return (
     <>
-      <div>Sign out page!!!!</div>
+       <AuthForm 
+      fields={[
+        {
+          label: 'username',
+          type: 'text',
+        },
+        {
+          label: 'password',
+          type: 'password',
+        },
+        {
+          label: 'confirm password',
+          type: 'password'
+        }
+      ]}
+      />
     </>
   )
 

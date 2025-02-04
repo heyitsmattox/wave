@@ -1,5 +1,6 @@
 
-const AuthForm = () => {
+const AuthForm = (props) => {
+  const { fields } = props;
 
   return (
     <>

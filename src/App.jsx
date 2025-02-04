@@ -1,5 +1,3 @@
-import AuthForm from "./pages/auth/AuthForm";
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignInPage from "./pages/auth/SigninPage";
 import SignOutPage from "./pages/auth/SignoutPage";
