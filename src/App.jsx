@@ -1,13 +1,20 @@
-import AuthForm from "./pages/auth/AuthForm"
+import AuthForm from "./pages/auth/AuthForm";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignInPage from "./pages/auth/SigninPage";
+import SignOutPage from "./pages/auth/SignoutPage";
 
 function App() {
-
   return (
     <>
-      <AuthForm />
-      
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SignInPage />} />
+          <Route path="/sign-out" element={<SignOutPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
