@@ -1,5 +1,7 @@
 
 const AuthForm = (props) => {
+  //test
+  console.log('hello world')
   const { fields } = props;
 
   return <form className="m-4 p-2 bg-white border border-slate-300 rounded-lg">
