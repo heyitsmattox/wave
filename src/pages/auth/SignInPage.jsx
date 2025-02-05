@@ -13,6 +13,7 @@ const SignInPage = () => {
           type: 'password',
         }
       ]}
+      submitButtonLabel='sign in'
       />
     </div>
   )

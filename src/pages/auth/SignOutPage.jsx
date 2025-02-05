@@ -17,6 +17,7 @@ const SignOutPage = () => {
           type: 'password'
         }
       ]}
+      submitButtonLabel='create account'
       />
     </div>
   )
