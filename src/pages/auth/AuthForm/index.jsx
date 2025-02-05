@@ -4,7 +4,13 @@ const AuthForm = (props) => {
 
   return (
     <>
-      <div>Auth form component</div>
+     {
+      fields.map((field, idx) => <div key={field.label}>
+      <label>{field.label}</label>
+      <input type={field.type}></input>
+      </div>
+      )
+     }
     </>
   );
 };
