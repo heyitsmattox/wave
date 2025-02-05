@@ -1,5 +1,5 @@
 import AuthForm from "./AuthForm";
-const SignOutPage = () => {
+const SignUpPage = () => {
   return (
     <div className="flex justify-center items-center">
        <AuthForm 
@@ -24,4 +24,4 @@ const SignOutPage = () => {
 
 };
 
-export default SignOutPage;
+export default SignUpPage;
