@@ -1,7 +1,7 @@
 import AuthForm from "./AuthForm";
 const SignInPage = () => {
   return (
-    <>
+    <div className="flex justify-center items-center">
       <AuthForm 
       fields={[
         {
@@ -14,7 +14,7 @@ const SignInPage = () => {
         }
       ]}
       />
-    </>
+    </div>
   )
 
 };
