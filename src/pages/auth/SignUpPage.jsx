@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AuthForm from "./AuthForm";
 const SignUpPage = () => {
   return (
@@ -18,7 +19,9 @@ const SignUpPage = () => {
         }
       ]}
       submitButtonLabel='create account'
+    
       />
+      <Link to='/'>Sign in</Link>
     </div>
   )
 

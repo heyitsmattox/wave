@@ -2,7 +2,7 @@ import { useState } from "react";
 import Field from "./Field";
 
 const AuthForm = (props) => {
-  const { fields, submitButtonLabel } = props;
+  const { fields, submitButtonLabel, accountStatus } = props;
   //keep track of the input the user is doing each time
   const [fieldValues, setFieldValues] = useState(() => {
     //default value needs to be an object
@@ -18,6 +18,7 @@ const AuthForm = (props) => {
   console.log(fieldValues);
 
   return (
+    <>
     <form className="font-lato m-4 p-4 bg-white border border-slate-300 rounded-lg">
       {fields.map((field) => (
         <Field
@@ -43,6 +44,8 @@ py-3 shadow-md mt-4"
         {submitButtonLabel}
       </button>
     </form>
+    
+    </>
   );
 };
 
