@@ -7,7 +7,7 @@ const SignInPage = () => {
     <>
       <FormContainer />
 
-      <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <AuthForm
           fields={[
             {
@@ -21,8 +21,13 @@ const SignInPage = () => {
           ]}
           submitButtonLabel="sign in"
         />
+      <Link 
+      to='/sign-up'
+      className="text-blue-600 underline"
+      >
+        Create an account
+        </Link>
       </div>
-      <Link to='/sign-up'>Create an account</Link>
     </>
   );
 };

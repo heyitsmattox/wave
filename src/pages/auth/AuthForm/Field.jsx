@@ -10,7 +10,7 @@ const Field = (props) => {
   <input 
   id={label} 
   type={type} 
-  className="px-1 py-1 bg-slate-50 border border-slate-300 rounded-lg focus:outline-blue-300 w-64"
+  className="px-1 py-1 bg-slate-50 border border-slate-300 rounded-lg focus:outline-blue-700 w-64"
   value={fieldValues}
   onChange={onChange}
   
