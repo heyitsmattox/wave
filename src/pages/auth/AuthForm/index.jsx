@@ -17,8 +17,7 @@ const AuthForm = (props) => {
   });
 
 //implementatiton MVP for adding a user to our database.
-// console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
-// console.log("Supabase Key:", import.meta.env.VITE_SUPABASE_KEY);
+
 
 
 const createUser = async (e) => {
@@ -39,8 +38,7 @@ const createUser = async (e) => {
   }
 }
 
-  // console.log(fieldValues.username);
-  // console.log(fieldValues.password);
+
 
   return (
     <>
