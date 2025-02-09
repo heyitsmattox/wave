@@ -10,7 +10,6 @@ export const createUser = async (e, fieldValues) => {
     password: fieldValues.password
   })
 
-
   console.log("supabase response", { data, error})
 
   if (error) {
