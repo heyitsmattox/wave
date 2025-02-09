@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Field from "./Field";
-import supabase from "../../../services/supabase-client"
+import * as userService from "../../../services/users"
 
 const AuthForm = (props) => {
   const { fields, submitButtonLabel } = props;
@@ -16,34 +16,10 @@ const AuthForm = (props) => {
     return initialState;
   });
 
-//implementatiton MVP for adding a user to our database.
-
-
-
-const createUser = async (e) => {
-  e.preventDefault();
-
-  console.log("Submitting with the Field values:", fieldValues);
-
-  const { data, error } = await supabase.auth.signUp({
-    email: fieldValues.username,
-    password: fieldValues.password
-  })
-  console.log("supabase response", { data, error})
-
-  if (error) {
-    console.error("Error signing up:", error.message);
-  } else {
-    console.log("User created successfully:", data);
-  }
-}
-
-
-
   return (
     <>
     <form className="font-lato m-4 p-4 bg-white border border-slate-300 rounded-lg"
-    onSubmit={createUser}
+    onSubmit={userService.createUser}
     >
       {fields.map((field) => (
         <Field
