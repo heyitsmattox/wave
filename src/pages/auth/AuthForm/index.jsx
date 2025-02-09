@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Field from "./Field";
+import supabase from "../../../services/supabase-client"
 
 const AuthForm = (props) => {
-  const { fields, submitButtonLabel, accountStatus } = props;
+  const { fields, submitButtonLabel } = props;
   //keep track of the input the user is doing each time
   const [fieldValues, setFieldValues] = useState(() => {
     //default value needs to be an object
@@ -15,11 +16,37 @@ const AuthForm = (props) => {
     return initialState;
   });
 
-  console.log(fieldValues);
+//implementatiton MVP for adding a user to our database.
+// console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
+// console.log("Supabase Key:", import.meta.env.VITE_SUPABASE_KEY);
+
+
+const createUser = async (e) => {
+  e.preventDefault();
+
+  console.log("Submitting with the Field values:", fieldValues);
+
+  const { data, error } = await supabase.auth.signUp({
+    email: fieldValues.username,
+    password: fieldValues.password
+  })
+  console.log("supabase response", { data, error})
+
+  if (error) {
+    console.error("Error signing up:", error.message);
+  } else {
+    console.log("User created successfully:", data);
+  }
+}
+
+  // console.log(fieldValues.username);
+  // console.log(fieldValues.password);
 
   return (
     <>
-    <form className="font-lato m-4 p-4 bg-white border border-slate-300 rounded-lg">
+    <form className="font-lato m-4 p-4 bg-white border border-slate-300 rounded-lg"
+    onSubmit={createUser}
+    >
       {fields.map((field) => (
         <Field
         key={field.label}
