@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Field from "./Field";
-import * as userService from "../../../services/users"
+import * as userService from "../../../services/users";
 
 const AuthForm = (props) => {
   const { fields, submitButtonLabel } = props;
@@ -19,7 +19,7 @@ const AuthForm = (props) => {
   return (
     <>
     <form className="font-lato m-4 p-4 bg-white border border-slate-300 rounded-lg"
-    onSubmit={userService.createUser}
+    onSubmit={(e) => userService.createUser(e, fieldValues)}
     >
       {fields.map((field) => (
         <Field
