@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignInPage from "./pages/auth/SigninPage";
-import SignOutPage from "./pages/auth/SignUpPage";
+import SignUpPage from "./pages/auth/SignUpPage";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SignInPage />} />
-          <Route path="/sign-up" element={<SignOutPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </>
