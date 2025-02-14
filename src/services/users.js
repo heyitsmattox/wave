@@ -17,3 +17,20 @@ export const creatingAccount = async (fieldValues) => {
 
   }
 }
+
+
+// LEFT OFF HERE
+
+// export const signInUser = async (fieldValues) => {
+  
+//   const { data, error } = await supabase.auth.signInWithPassword({
+//     email: fieldValues.username,
+//     password: fieldValues.password
+//   });
+
+//   if(error) {
+//     console.error("Error signing in with account:", error.message);
+//   } else {
+//     console.log("account signed in successfully", data);
+//   }
+// }

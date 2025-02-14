@@ -1,11 +1,36 @@
 import AuthForm from "./AuthForm";
 import FormContainer from "./FormContainer";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 
-const SignInPage = () => {
+const SignInPage =  () => {
+  const location = useLocation();
+  const fieldValues = location.state?.fieldValues || {};
+
+
+  console.log('signInPage', fieldValues)
+
+
+// LEFT OFF HERE
+
+const navigate = useNavigate()
+
+// LEFT OFF HERE
+
+const handleSignIn = async () => {
+ if(Object.keys(fieldValues).length === 0) {
+  console.log('object is empty and will not redirect')
+  return null
+ } else {
+  navigate("/dashboard")
+ }
+}
+
+
 
 
   return (
@@ -24,6 +49,7 @@ const SignInPage = () => {
               },
             ]}
             submitButtonLabel="sign in"
+            onSubmit={handleSignIn}
             />
           <Link to="/sign-up" 
           className="text-blue-600 underline">

@@ -47,6 +47,7 @@ const SignUpPage = () => {
     try {
       await userService.creatingAccount(fieldValues);
       console.log("Account created successfully!");
+      navigate("/", { state: { fieldValues } }); 
     } catch (error) {
       console.error("Error creating user:", error);
     }

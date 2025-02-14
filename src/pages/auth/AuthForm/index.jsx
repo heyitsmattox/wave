@@ -29,9 +29,9 @@ const AuthForm = (props) => {
       e.preventDefault(); 
       if (onSubmit) {
         await onSubmit(fieldValues);
-        console.log("Form submitted");
+        console.log("location AuthForm: --> Form submitted");
       } else {
-        console.error("onSubmit function is undefined!");
+        console.error("Error submitting form!");
       }
     }}
 
