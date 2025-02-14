@@ -1,37 +1,48 @@
 import AuthForm from "./AuthForm";
 import FormContainer from "./FormContainer";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../services/supabase-client";
+import { useState } from "react";
 
+const SignInPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+  const login = async (fieldValues) => {
+    console.log("attempting to login with:", {
+      email: fieldValues.email,
+      password: fieldValues.password,
+    });
 
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: fieldValues.email,
+      password: fieldValues.password,
+    });
 
-const SignInPage =  () => {
-  const location = useLocation();
-  const fieldValues = location.state?.fieldValues || {};
+    if (error) {
+      console.error("Loging error:", error.message);
+      return { success: false, error: error.message };
+    }
 
+    console.log("Login successful:", data);
+    return { success: true, data };
+  };
 
-  console.log('signInPage', fieldValues)
+  const handleSubmit = async (fieldValues) => {
+    setEmail(fieldValues.email);
+    setPassword(fieldValues.password);
 
+    const response = await login(fieldValues);
 
-// LEFT OFF HERE
-
-const navigate = useNavigate()
-
-// LEFT OFF HERE
-
-const handleSignIn = async () => {
- if(Object.keys(fieldValues).length === 0) {
-  console.log('object is empty and will not redirect')
-  return null
- } else {
-  navigate("/dashboard")
- }
-}
-
-
-
+    if (response.success) {
+      console.log("redirecting user");
+      navigate("/dashboard");
+    } else {
+      console.error("Login failed", response.error);
+    }
+  };
 
   return (
     <>
@@ -40,19 +51,22 @@ const handleSignIn = async () => {
           <AuthForm
             fields={[
               {
-                label: "username",
-                type: "text",
+                label: "email",
+                type: "email",
+                value: email,
+                onChange: (e) => setEmail(e.target.value),
               },
               {
                 label: "password",
                 type: "password",
+                value: password,
+                onChange: (e) => setPassword(e.target.value),
               },
             ]}
             submitButtonLabel="sign in"
-            onSubmit={handleSignIn}
-            />
-          <Link to="/sign-up" 
-          className="text-blue-600 underline">
+            onSubmit={handleSubmit}
+          />
+          <Link to="/sign-up" className="text-blue-600 underline">
             Create an account
           </Link>
         </div>
@@ -61,4 +75,4 @@ const handleSignIn = async () => {
   );
 };
 
-export default SignInPage
+export default SignInPage;

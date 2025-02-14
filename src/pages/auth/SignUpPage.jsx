@@ -11,7 +11,7 @@ const SignUpPage = () => {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
-    const getInitialSession = async () => {
+   const getInitialSession = async () => {
       const {
         data: { session },
       } = await supabase.auth.getSession();
@@ -47,7 +47,7 @@ const SignUpPage = () => {
     try {
       await userService.creatingAccount(fieldValues);
       console.log("Account created successfully!");
-      navigate("/", { state: { fieldValues } }); 
+      navigate("/dashboard", { state: { fieldValues } }); 
     } catch (error) {
       console.error("Error creating user:", error);
     }
@@ -60,7 +60,7 @@ const SignUpPage = () => {
           <AuthForm
             fields={[
               {
-                label: "username",
+                label: "email",
                 type: "text",
               },
               {
