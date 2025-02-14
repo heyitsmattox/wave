@@ -29,9 +29,9 @@ const AuthForm = (props) => {
       e.preventDefault(); 
       if (onSubmit) {
         await onSubmit(fieldValues);
-        console.log("Form submitted");
+        console.log("location AuthForm: --> Form submitted");
       } else {
-        console.error("onSubmit function is undefined!");
+        console.error("Error submitting form!");
       }
     }}
 
@@ -50,7 +50,6 @@ const AuthForm = (props) => {
               ...fieldValues,
               [field.label]: e.target.value,
             });
-            // console.log(`updating field ${field.label}:`, e.target.value)
           }}
         />
       ))}
@@ -58,9 +57,9 @@ const AuthForm = (props) => {
       type="submit"
         className="bg-blue-700 text-white p-4 w-full rounded-lg 
 py-3 shadow-md mt-4"
+        onSubmit={fieldValues}
       >
         {submitButtonLabel}
-        
       </button>
     </form>
     

@@ -7,7 +7,7 @@ export const creatingAccount = async (fieldValues) => {
   console.log("Submitting with the Field values:", fieldValues);
   
   const { data, error } = await supabase.auth.signUp({
-    email: fieldValues.username,
+    email: fieldValues.email,
     password: fieldValues.password
   });  
   if (error) {
@@ -17,3 +17,5 @@ export const creatingAccount = async (fieldValues) => {
 
   }
 }
+
+
