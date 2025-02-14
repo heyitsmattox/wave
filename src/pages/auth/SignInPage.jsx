@@ -11,6 +11,7 @@ const SignInPage = () => {
   const navigate = useNavigate();
 
   const login = async (fieldValues) => {
+    console.log("fieldValues-->", fieldValues)
     console.log("attempting to login with:", {
       email: fieldValues.email,
       password: fieldValues.password,
