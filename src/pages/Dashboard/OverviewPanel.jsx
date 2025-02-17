@@ -13,8 +13,9 @@ const OverviewPanel = () => {
 
 return (
   <>
-    <div className="flex justify-center w-full m-4 max-w-4xl  items-center">
-      <div className="font-latot text-lg text-slate-600 mr-1" >Portfolio:</div>
+    <div className="pl-4 pt-4 flex justify-start w-full max-w-4xl  items-center">
+      <div className="font-latot text-lg text-slate-400 mr-1" >Portfolio:</div>
+     
       <form
       onSubmit={(e) => {
         e.preventDefault();
@@ -29,12 +30,18 @@ return (
           
         }
       }
-        className=" font-lato text-lg text-emerald-500"
+        className=" font-lato text-lg text-emerald-500 bg-slate-700"
         ></input>
       </form>
+    </div>
+    <div className="ml-4 flex justify-start w-full max-w-4xl  items-center">
+      <div className="flex flex-col">
+    <span className="text-white text-2xl font-lato">$50,123.75</span>
+    <span className="text-emerald-500 font-lato">+$500.75 in the last 30 days</span>
+      </div>
 
     </div>
-      <h2 className="flex text-3xl">{portfolioName}</h2>
+      {/* <h2 className="flex text-3xl">{portfolioName}</h2> */}
   </>
 )
 };
