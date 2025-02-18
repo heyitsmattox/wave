@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
+import SearchBar from "../../shared-components/SearchBar";
 
 const OverviewPanel = () => {
+
+const handleSearch = (searchTerm) => {
+  console.log('Searching for:', searchTerm);
+}
+
     const [ portfolioName, setPortfolioName ] = useState(() => {
       const storedData = localStorage.getItem("portfolioName");
       console.log("stored data value -->", storedData)
@@ -19,7 +25,7 @@ return (
       <form
       onSubmit={(e) => {
         e.preventDefault();
-       setPortfolioName(portfolioName)
+        setPortfolioName(portfolioName)
       }}
       >
         <input 
@@ -34,15 +40,20 @@ return (
         ></input>
       </form>
     </div>
+
+    <div className=" flex justify-center">
+      <SearchBar onSearch={handleSearch} />
+
+    </div>
     <div className="ml-4 flex justify-start w-full max-w-4xl  items-center">
-      <div className="flex flex-col">
-    <span className="text-white text-2xl font-lato">$50,123.75</span>
+      <div className="absolute flex flex-col">
+    <span className=" text-white text-2xl font-lato">$50,123.75</span>
     <span className="text-emerald-500 font-lato">+$500.75 in the last 30 days</span>
     <button className="p-2 flex rounded-lg bg-blue-600 justify-center text-white">Add to portfolio</button>
       </div>
 
     </div>
-      {/* <h2 className="flex text-3xl">{portfolioName}</h2> */}
+    
   </>
 )
 };

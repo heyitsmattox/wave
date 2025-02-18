@@ -11,12 +11,16 @@ const SearchBar = ({ onSearch }) => {
   return (
     <>
       <div>
-        <input 
+        <input
+          className="rounded-lg pr-12 p-2" 
           type="text"
-          placeholder="Search..."
+          placeholder="Search for products"
           value={searchTerm}
           onChange={handleInputChange}
+        
         />
+        {/* add a new stytle for the x here */}
+          <button onClick={() => setSearchTerm("")}>X</button>
       </div>
     </>
   )
