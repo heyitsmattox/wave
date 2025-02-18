@@ -38,6 +38,7 @@ return (
       <div className="flex flex-col">
     <span className="text-white text-2xl font-lato">$50,123.75</span>
     <span className="text-emerald-500 font-lato">+$500.75 in the last 30 days</span>
+    <button className="p-2 flex rounded-lg bg-blue-600 justify-center text-white">Add to portfolio</button>
       </div>
 
     </div>
