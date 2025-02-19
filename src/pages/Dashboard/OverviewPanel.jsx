@@ -19,8 +19,8 @@ const handleSearch = (searchTerm) => {
 
 return (
   <>
-    <div className="pl-4 pt-4 flex justify-start w-full max-w-4xl  items-center">
-      <div className="font-latot text-lg text-slate-400 mr-1" >Portfolio:</div>
+    <div className="pl-4 pt-4 flex justify-start w-full max-w-md mb-2">
+    <div className="flex items-center font-latot text-lg text-slate-400 mr-1" >Portfolio:</div>
      
       <form
       onSubmit={(e) => {
@@ -30,13 +30,12 @@ return (
       >
         <input 
         type="text"
+        className="font-lato text-lg text-emerald-500 bg-slate-700 border border-slate-500 focus:border-slate-500 rounded-md"
         value={portfolioName}
         onChange={(e) => {
           setPortfolioName(e.target.value)
-          
         }
       }
-        className=" font-lato text-lg text-emerald-500 bg-slate-700"
         ></input>
       </form>
     </div>
@@ -49,7 +48,9 @@ return (
       <div className="absolute flex flex-col">
     <span className=" text-white text-2xl font-lato">$50,123.75</span>
     <span className="text-emerald-500 font-lato">+$500.75 in the last 30 days</span>
-    <button className="p-2 flex rounded-lg bg-blue-600 justify-center text-white">Add to portfolio</button>
+    <button className="items-center p-2 flex rounded-lg bg-blue-600 justify-center text-white">
+    <i className="text-white mr-1 fa-solid fa-plus"></i>
+      Add to portfolio</button>
       </div>
 
     </div>
