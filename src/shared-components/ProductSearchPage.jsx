@@ -8,7 +8,7 @@ const ProductSearchPage = () => {
   const handleSearch = async (query) => {
     console.log("search button was clicked with query", query);
     if (!query) {
-      setProducts([]); // Clear results if input is empty
+      setProducts([]);
       return;
     }
   
@@ -16,7 +16,6 @@ const ProductSearchPage = () => {
     console.log("API response inside ProductSearchPage component", data);
   
     if (data && typeof data === 'object' && data['product-name']) {
-      // If there's a product in the response, wrap it in an array
       setProducts([data]); // Store the single product in an array
     } else {
       console.error("Invalid data received", data);
@@ -27,8 +26,6 @@ const ProductSearchPage = () => {
   return (
     <div className="p-4">
       <SearchBar onSearch={handleSearch} />
-
-      {/* Display search results */}
       <div className="mt-4">
   {products.length > 0 ? (
     <ul>

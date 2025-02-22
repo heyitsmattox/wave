@@ -5,12 +5,12 @@ const apiFetch = async (query) => {
 
   try {
     const response = await fetch(url);
-    console.log("Response status:", response.status); // Log status
+    console.log("Response status:", response.status); 
 
-    const textResponse = await response.text(); // Log raw response
+    const textResponse = await response.text();
     console.log("Raw response before JSON parsing:", textResponse);
 
-    const data = JSON.parse(textResponse); // Manually parse JSON
+    const data = JSON.parse(textResponse); 
     console.log("Parsed JSON data:", data); 
 
     return data;

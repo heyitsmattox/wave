@@ -42,7 +42,6 @@ return (
     </div>
 
     <div className=" flex justify-center">
-      {/* <SearchBar onSearch={handleSearch} /> */}
       <ProductSearchPage onSearch={handleSearch} />
 
     </div>
