@@ -1,3 +1,4 @@
+import SearchBar from "../../shared-components/SearchBar";
 import OverviewPanel from "./OverviewPanel";
 
 

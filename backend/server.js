@@ -1,54 +1,49 @@
-/* eslint-disable no-undef */
-require('dotenv').config();
+import 'dotenv/config'; // Auto-load .env variables
+import express from 'express';
+import cors from 'cors';
+import fetch from 'node-fetch';
 
-
-console.log("API Key:", process.env.PRICECHARTING_API_KEY);
-const express = require('express');
-const fetch = require('node-fetch');
-const cors = require('cors');
-
+console.log("API Key in server.js file:", process.env.PRICECHARTING_API_KEY);
 const app = express();
 
 
 app.use(cors({
   origin: 'http://localhost:5173', 
   methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-
-
 
 app.get('/api/search', async (req, res) => {
   const API_KEY = process.env.PRICECHARTING_API_KEY;
   const query = req.query.q;
-  console.log("received request with query", query);
+  
+  console.log("Received request with query:", query);
 
-
-  const url = new URL(`https://www.pricecharting.com/api/product?t=${API_KEY}&q=${query}`);
-  console.log("Sending request to PriceCharting API:", url.toString()); 
-  // url.searchParams.append('t', API_KEY);
-  // url.searchParams.append('q', query);
-
-  console.log("Sending request to PriceCharting API:", url.toString()); // Log the final URL
+  const url = `https://www.pricecharting.com/api/product?t=${API_KEY}&q=${query}`;
+  console.log("Sending request to PriceCharting API:", url);
 
   try {
     const response = await fetch(url);
-
+  
+    const rawText = await response.text(); // Capture raw response
+    console.log("Raw API Response from PriceCharting:", rawText); // Log raw text
+  
     if (response.ok) {
-      const data = await response.json();
-      console.log("Fetched data from PriceCharting API", data); // Log the fetched data
-      res.json(data); // Send the data back to the frontend
+      const data = JSON.parse(rawText); // Parse manually
+      console.log("Parsed API Data:", data);
+      res.json(data);
     } else {
-      console.error("Error fetching from PriceCharting API", response.status);
-      res.status(500).json({ error: 'Error fetching data from PriceCharting API' });
+      console.error("PriceCharting API Error:", response.status, rawText);
+      res.status(response.status).json({ error: "Error fetching data from PriceCharting API", details: rawText });
     }
   } catch (error) {
     console.error("Error fetching from PriceCharting API", error);
-    res.status(500).json({ error: 'Error fetching data from PriceCharting API' });
+    res.status(500).json({ error: "Error fetching data from PriceCharting API" });
   }
-    // const response = await fetch(url);
-    // res.json(data);
 });
+
+
+
 
 const portNumber = 5011;
 app.listen(portNumber, () => {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchBar from "../../shared-components/SearchBar";
+import ProductSearchPage from "../../shared-components/ProductSearchPage";
 
 const OverviewPanel = () => {
 
@@ -41,7 +42,8 @@ return (
     </div>
 
     <div className=" flex justify-center">
-      <SearchBar onSearch={handleSearch} />
+      {/* <SearchBar onSearch={handleSearch} /> */}
+      <ProductSearchPage onSearch={handleSearch} />
 
     </div>
     <div className="ml-4 flex justify-start w-full max-w-4xl  items-center">
@@ -54,7 +56,6 @@ return (
       </div>
 
     </div>
-    
   </>
 )
 };
