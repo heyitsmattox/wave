@@ -13,6 +13,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
+
 app.get('/api/search', async (req, res) => {
   const API_KEY = process.env.PRICECHARTING_API_KEY;
   const query = req.query.q;
