@@ -25,6 +25,8 @@ app.get('/api/search', async (req, res) => {
   try {
     const response = await fetch(url);
   
+    const rawText = await response.text();
+    
     if (response.ok) {
       const data = JSON.parse(rawText);
       console.log("Parsed API Data:", data);
