@@ -25,13 +25,13 @@ const PortfolioNameInput = () => {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-md mb-2">
-      <div className="flex items-center font-lato text-lg text-slate-400 mb-2">
+    <div className="items-center flex w-full max-w-md">
+      <div className="flex font-lato text-2xl text-slate-400">
         Portfolio:
       </div>
       <input
         type="text"
-        className="font-lato text-lg text-emerald-500 bg-slate-700 border border-slate-500 focus:border-slate-500 rounded-md"
+        className="ml-1 w-48 font-lato text-lg text-emerald-500 bg-slate-700 border border-slate-500 focus:border-slate-500 rounded-md"
         value={portfolioName}
         onChange={handleChange}
       />

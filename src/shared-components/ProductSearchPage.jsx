@@ -31,13 +31,14 @@ const ProductSearchPage = () => {
     <>
   <div className="">
     <div className="p-4 ">
-      <SearchBar onSearch={handleSearch} />
+          <SearchBar onSearch={handleSearch} />
         </div>
       <div className=" flex flex-col mt-4">
+     
   {products.length > 0 ? (
     <ul>
       {products.map((product) => (
-        <li key={product.id} className="border-b p-2">
+        <li key={product.id} className="text-white border-b p-2">
           {product['console-name'] + " " +product['product-name']} - ${product['loose-price'] / 100} {/* Price in dollars */}
         </li>
       ))}

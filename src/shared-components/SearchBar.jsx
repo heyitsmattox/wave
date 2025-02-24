@@ -8,8 +8,8 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSearch = async () => {
-    await onSearch(searchTerm);
-  }
+      await onSearch(searchTerm);
+  };
 
 
 
