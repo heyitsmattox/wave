@@ -37,6 +37,7 @@ const ProductSearchPage = () => {
      
   {products.length > 0 ? (
     <ul>
+      //add our card component here
       {products.map((product) => (
         <li key={product.id} className="text-white border-b p-2">
           {product['console-name'] + " " +product['product-name']} - ${product['loose-price'] / 100} {/* Price in dollars */}
