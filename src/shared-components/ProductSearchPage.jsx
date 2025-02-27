@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import apiFetch from "../utils/apiFetch";
 import SearchBar from "./SearchBar";
+import Card from "./Card";
 
 const ProductSearchPage = () => {
   const [products, setProducts] = useState([]);
@@ -37,10 +38,14 @@ const ProductSearchPage = () => {
      
   {products.length > 0 ? (
     <ul>
-      //add our card component here
       {products.map((product) => (
         <li key={product.id} className="text-white border-b p-2">
-          {product['console-name'] + " " +product['product-name']} - ${product['loose-price'] / 100} {/* Price in dollars */}
+          {
+            <div>
+              <Card product={product} />
+            </div>
+          }
+          {/* {product['console-name'] + " " +product['product-name']} - ${product['loose-price'] / 100} */}
         </li>
       ))}
     </ul>
