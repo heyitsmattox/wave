@@ -42,7 +42,7 @@ const ProductSearchPage = () => {
                 {products.map((product) => (
                   <li key={product.id}>
                     {
-                      <div className="m-2">
+                      <div className="m-8">
                         <Card product={product} />
                       </div>
                     }
