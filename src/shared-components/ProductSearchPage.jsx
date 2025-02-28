@@ -29,17 +29,20 @@ const ProductSearchPage = () => {
 
   return (
     <>
-      <div className="max-w-4xl w-full border border-blue-500 flex flex-col justify-center p-20">
+      <div className="max-w-4xl w-full flex flex-col justify-center  p-4 sm:p-8  md:p-12 lg:p-20 mt-12">
         <div className="flex justify-center">
         <SearchBar onSearch={handleSearch} />
         </div>
-          <div className="mt-4">
+
+        <div className="mt-4">
+
+          <div className="">
             {products.length > 0 ? (
-              <ul>
+              <ul className="flex justify-center flex-wrap">
                 {products.map((product) => (
                   <li key={product.id}>
                     {
-                      <div>
+                      <div className="m-2">
                         <Card product={product} />
                       </div>
                     }
@@ -51,6 +54,7 @@ const ProductSearchPage = () => {
               <p>No products found</p>
             )}
           </div>
+            </div>
       </div>
     </>
   );

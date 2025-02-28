@@ -31,7 +31,7 @@ const PortfolioNameInput = () => {
       </div>
       <input
         type="text"
-        className="ml-1 w-48 font-lato text-lg text-emerald-500 bg-slate-700 border border-slate-500 focus:border-slate-500 rounded-md"
+        className="ml-1 w-24 sm:w-48 font-lato text-lg text-emerald-500 bg-slate-700 border border-slate-500 focus:border-slate-500 rounded-md"
         value={portfolioName}
         onChange={handleChange}
       />
