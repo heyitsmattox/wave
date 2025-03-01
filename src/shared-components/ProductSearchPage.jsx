@@ -3,9 +3,9 @@ import apiFetch from "../utils/apiFetch";
 import SearchBar from "./SearchBar";
 import Card from "./Card";
 
-const ProductSearchPage = () => {
+const ProductSearchPage = (props) => {
   const [products, setProducts] = useState([]);
-
+  const { value, setValue } = props;
   useEffect(() => {
     console.log("product objectt with new products being added", products);
   }, [products]);
@@ -29,7 +29,7 @@ const ProductSearchPage = () => {
 
   return (
     <>
-      <div className=" border border-red-500 max-w-8xl w-full flex flex-col justify-center  p-4 sm:p-8  md:p-12 lg:p-20 mt-12">
+      <div className=" max-w-8xl w-full flex flex-col justify-center  p-4 sm:p-8  md:p-12 lg:p-20 mt-12">
         <div className="flex justify-center">
         <SearchBar onSearch={handleSearch} />
         </div>
@@ -43,7 +43,7 @@ const ProductSearchPage = () => {
                   <li key={product.id}>
                     {
                       <div className="m-8">
-                        <Card product={product} />
+                        <Card product={product} value={value} setValue={setValue}  />
                       </div>
                     }
                     {/* {product['console-name'] + " " +product['product-name']} - ${product['loose-price'] / 100} */}

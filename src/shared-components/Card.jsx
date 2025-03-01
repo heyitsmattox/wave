@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import AddToValueBtn from './AddToValueBtn';
+import { usePortfolio } from '../contexts/PortfolioContext';
 
 const Card = (props) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [value, setValue] = useState(0);
   const { product } = props;
+const { setPortfolioValue } = usePortfolio(); 
+
   console.log("details of our individual product", product)
 
   const price = product['loose-price'] / 100;
@@ -13,21 +16,28 @@ const Card = (props) => {
 
   const handleAddToPortfolio = () => {
     setIsAdded(true);
-    setValue(price);
+    setPortfolioValue(prevValue => prevValue + price);
+    console.log("value", value);
+    console.log("button handleAddToPortfolio was clicked");
   }
 
 
     return (
+      <>
         <div className=" bg-white font-lato border border-slate-400 rounded-lg h-96 w-72 p-8 shadow-xl">
           <img src="images/skyridgeBoosterbox.png" className="w-full h-36 object-contain" />
             <div className="mt-4 text-slate-700 text-xl">{setName + " " + product['product-name']}</div>
               <div className="text-slate-400 font-playfair text-sm">{setName}</div>
             <div className="text-slate-400 mt-4 font-playfair">
-              <div>Value: ${price}</div>
-              <div>Type: {product['product-name']}</div>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Add to Portfolio</button>
+              <div className="text-slate-800">${price}</div>
+              {/* <div>{product['product-name']}</div> */}
+              <div>Qty: 1</div>
+              <div>
+                <AddToValueBtn isAdded={isAdded} handleClick={handleAddToPortfolio} />
+                </div>
             </div>
         </div>
+      </>
     )
 };
 
