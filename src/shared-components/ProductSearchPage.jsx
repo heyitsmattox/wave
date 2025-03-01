@@ -46,7 +46,6 @@ const ProductSearchPage = (props) => {
                         <Card product={product} value={value} setValue={setValue}  />
                       </div>
                     }
-                    {/* {product['console-name'] + " " +product['product-name']} - ${product['loose-price'] / 100} */}
                   </li>
                 ))}
               </ul>

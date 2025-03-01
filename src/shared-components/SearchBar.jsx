@@ -9,6 +9,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSearch = async () => {
       await onSearch(searchTerm);
+      setSearchTerm("");
   };
 
 
