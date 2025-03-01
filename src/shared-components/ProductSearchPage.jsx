@@ -29,7 +29,7 @@ const ProductSearchPage = () => {
 
   return (
     <>
-      <div className="max-w-4xl w-full flex flex-col justify-center  p-4 sm:p-8  md:p-12 lg:p-20 mt-12">
+      <div className=" border border-red-500 max-w-8xl w-full flex flex-col justify-center  p-4 sm:p-8  md:p-12 lg:p-20 mt-12">
         <div className="flex justify-center">
         <SearchBar onSearch={handleSearch} />
         </div>
