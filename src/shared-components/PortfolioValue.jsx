@@ -14,7 +14,7 @@ const PortfolioValue = () => {
           <span className="text-emerald-500 font-lato">
             +$500.75 in the last 30 days
           </span>
-          <AddToValueBtn/>
+          {/* <AddToValueBtn/> */}
         </div>
       </div>
     </>

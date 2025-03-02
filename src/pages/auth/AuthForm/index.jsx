@@ -55,7 +55,7 @@ const AuthForm = (props) => {
           type="submit"
           className="relative flex justify-center items-center bg-blue-700 text-white p-5 w-full rounded-lg 
 py-3 shadow-md mt-4"
-          onSubmit={fieldValues}
+          onSubmit={() =>fieldValues}
         >
           {submitButtonLabel}
           <span className="w-5 h-5 inline-flex items-center justify-center">
