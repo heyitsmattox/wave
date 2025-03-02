@@ -5,16 +5,10 @@ const AddToValueBtn = ({ isAdded, handleClick }) => {
     <button 
       onClick={handleClick}
       disabled={isAdded}
-      className={clsx(
-        " relativepx-4 py-2 rounded-md",
-        !isAdded && "bg-blue-500 text-white p-2 mt-2"
-      )}
+      className="p-3"
       >
-        {isAdded ? (
-          <i className="absolute left-0bg-none text-xl text-green-500 fa-solid fa-check-to-slot"></i>
-        ) : (
-          'Add to Portfolio'
-        )}
+     <i className="flex w-6 h-6 items-center justify-center rounded-full text-lg border border-emerald-500 text-emerald-500 fa-solid fa-plus"></i>
+  
       </button>
   );
 }
