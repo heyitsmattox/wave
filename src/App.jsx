@@ -13,6 +13,7 @@ function App() {
           <Route path="/" element={<SignInPage />} />
           <Route path="/sign-up" element={<SignUpPage  />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/pokemon/:id" element={<PokemonShowPage />} />
         </Routes>
       </BrowserRouter>
      </PortfolioProvider>
