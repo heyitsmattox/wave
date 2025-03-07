@@ -3,6 +3,7 @@ import apiFetch from "../utils/apiFetch";
 import SearchBar from "./SearchBar";
 import Card from "./Card";
 
+
 const ProductSearchPage = (props) => {
 
   const [products, setProducts] = useState([]);

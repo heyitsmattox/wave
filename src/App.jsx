@@ -3,6 +3,7 @@ import SignInPage from "./pages/auth/SigninPage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import Dashboard from "./pages/Dashboard";
 import { PortfolioProvider } from "./contexts/PortfolioContext";
+import PokemonShowPage from "./pages/PokemonShowPage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/" element={<SignInPage />} />
           <Route path="/sign-up" element={<SignUpPage  />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/pokemon/:id" element={<PokemonShowPage />} />
+          <Route path="/dashboard/:id" element={<PokemonShowPage />} />
         </Routes>
       </BrowserRouter>
      </PortfolioProvider>
