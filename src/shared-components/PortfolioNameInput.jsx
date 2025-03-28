@@ -12,7 +12,7 @@ const PortfolioNameInput = () => {
     } catch (error) {
       console.error("Error loading portfolio name:", error);
     }
-  }, []);
+  }, [portfolioName]);
 
   const handleChange = (e) => {
     const newValue = e.target.value;

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import AddToValueBtn from "./AddToValueBtn";
 import { usePortfolio } from "../contexts/PortfolioContext";
 import { Link } from "react-router-dom";
@@ -19,9 +19,6 @@ const Card = (props) => {
     console.log("button handleQtyAndValueInPortfolio was clicked");
   };
 
-  useEffect(() => {
-    console.log("qty", quantity);
-  }, [quantity]);
 
   return (
     <>

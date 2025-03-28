@@ -14,7 +14,19 @@ app.use(cors({
 }));
 
 
-app.get('/api/search', async (req, res) => {
+//added this middleware to check that a query was indeed added in the search input box.
+const validateQueryInput = (req, res, next) => {
+  const { q } = req.query;
+
+  if(!q) {
+    return res.status(400).json({error: "A query is required."})
+  }
+  next();
+};
+
+
+//made a change on line 28 with validQueryInput
+app.get('/api/search', validateQueryInput, async (req, res) => {
   const API_KEY = process.env.PRICECHARTING_API_KEY;
   const query = req.query.q;
   

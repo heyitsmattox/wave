@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import apiFetch from "../utils/apiFetch";
 import SearchBar from "./SearchBar";
 import Card from "./Card";
@@ -8,9 +8,7 @@ const ProductSearchPage = (props) => {
 
   const [products, setProducts] = useState([]);
   const { value, setValue } = props;
-  useEffect(() => {
-    console.log("product object with new products being added", products);
-  }, [products]);
+
 
   const handleSearch = async (query) => {
     console.log("search button was clicked with query", query);
