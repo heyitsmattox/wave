@@ -1,5 +1,5 @@
 // import SearchBar from "../../shared-components/SearchBar";
-import ProductSearch from "./ProductSearchPage";
+import ProductSearch from "../Product-Search-Page/ProductSearch";
 // import OverviewPanel from "./OverviewPanel";
 
 

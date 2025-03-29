@@ -12,6 +12,7 @@ const searchProducts = async (req, res) => {
 
   console.log("Received request with query:", query); //keep
 
+  //update url to products once we are ready to display ~ 20 results.
   const url = `https://www.pricecharting.com/api/product?t=${API_KEY}&q=${query}`;
   console.log("Sending request to PriceCharting API:", url);
   try {
