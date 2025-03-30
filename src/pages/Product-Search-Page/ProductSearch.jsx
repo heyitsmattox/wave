@@ -7,6 +7,7 @@ const ProductSearch = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
+    setLoading(true);
     if (!searchQuery.trim()) return;
     navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
   };

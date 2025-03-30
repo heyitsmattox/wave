@@ -42,7 +42,7 @@ const SearchResults = () => {
       try {
         const response = await axios.get(`/api/products/search?q=${searchQuery}`);
         setProducts(response.data.products || []); // Ensure it's an array
-        setNumOfResults(response.data.products.length);
+        //setNumOfResults(response.data.products.length);
       } catch (error) {
         console.error("Search request failed:", error);
         setError("Failed to fetch search results");
@@ -85,7 +85,7 @@ const SearchResults = () => {
       <div className="w-full max-w-5xl">
        {
      
-            <h2 className="text-3xl font-playfair text-emerald-500">Search Results for "{searchQuery}"</h2>
+            <h2 className="text-3xl font-playfair text-emerald-500">Search Results for &quot;{searchQuery}&quot;</h2>
    
        }
 

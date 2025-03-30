@@ -2,15 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignInPage from "./pages/auth/SigninPage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import Dashboard from "./pages/Dashboard";
-import { PortfolioProvider } from "./contexts/PortfolioContext";
-//import ProductSearch from "./pages/Product-Search-Page/ProductSearch";
 import SearchResults from "./pages/Product-Search-Page/SearchResults";
 
 
 function App() {
   return (
     <>
-     <PortfolioProvider>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SignInPage />} />
@@ -19,7 +17,7 @@ function App() {
           <Route path="/search" element={<SearchResults />} />
         </Routes>
       </BrowserRouter>
-     </PortfolioProvider>
+
     </>
   );
 }

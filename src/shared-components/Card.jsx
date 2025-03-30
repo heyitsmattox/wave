@@ -1,8 +1,7 @@
-import {useEffect } from "react";
+import { blobFrom } from "node-fetch";
+import {useState, useEffect } from "react";
 
 const Card = (props) => {
-
-
 
   const images = [
     "public/images/brilliantStars.png",
@@ -26,6 +25,12 @@ const Card = (props) => {
   useEffect(() => {
     setRandomImg(images[randomIdx]);
   }, []);
+
+
+
+
+
+
 
   return (
     <>
