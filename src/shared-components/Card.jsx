@@ -1,51 +1,50 @@
+import { blobFrom } from "node-fetch";
+import {useState, useEffect } from "react";
 
-import AddToValueBtn from "./AddToValueBtn";
-import { usePortfolio } from "../contexts/PortfolioContext";
-import { Link } from "react-router-dom";
 const Card = (props) => {
-  const { product, quantity, onQuantityChange } = props;
-  const { setPortfolioValue } = usePortfolio();
 
-  console.log("details of our individual product", product);
+  const images = [
+    "public/images/brilliantStars.png",
+    "public/images/firstEditionBox.avif",
+    "public/images/celebi.png",
+    "public/images/charizard.png",
+    "public/images/es_etb.png",
+    "public/images/prismatic.png",
+    "public/images/skyridgeBoosterbox.png",
+  ];
+  const { product } = props;
+  
+  const combinedName = product["console-name"] + " " + product["product-name"];
+  const productName = combinedName.split(" ").slice(1).join(" ");
+  
+  const editedSetName = product["console-name"].split(" ");
+  const setName = editedSetName.slice(1).join(" ");
+  
+  const randomIdx = Math.floor(Math.random() * 6);
+  const [randomImg, setRandomImg] = useState("");
+  useEffect(() => {
+    setRandomImg(images[randomIdx]);
+  }, []);
 
-  const price = product["loose-price"] / 100;
-  const consoleName = product["console-name"];
-  const consoleNameParts = consoleName.split(" ");
-  const setName = consoleNameParts.slice(1, 3).join(" ");
 
-  const handleQtyAndValueInPortfolio = () => {
-    setPortfolioValue((prevValue) => prevValue + price);
-    onQuantityChange(quantity + 1);
-    console.log("button handleQtyAndValueInPortfolio was clicked");
-  };
+
+
+
 
 
   return (
     <>
-   
-      <div className=" bg-white font-lato border border-slate-400 rounded-lg h-96 w-72 p-8 shadow-xl">
-        <Link 
-        to={`/dashboard/${product.id}`}
-        product={product}
-        > 
-        <img
-          src="images/brilliantStars.png"
-          alt="brilliant stars"
-          className="w-full h-36 object-contain"
-          />
-        <div className="mt-4 text-slate-700 text-xl">
-          {setName + " " + product["product-name"]}
-        </div>
-        <div className="text-slate-400 font-playfair text-sm">{setName}</div>
-          </Link>
-        <div className="mt-2 w-full border-b border-slate-300 w=[1px]"></div>
-        <div className=" flex flex-col justify-end text-slate-400 mt-10 font-playfair">
-          <div className="flex justify-between items-end">
-            <div className="mb-1">
-              <div className="text-slate-800">${price}</div>
-              <div>Qty: {quantity}</div>
-            </div>
-            <AddToValueBtn handleClick={handleQtyAndValueInPortfolio} />
+      <div className="p-4">
+        <div className="flex flex-col border border-slate-500 w-72 h-96 rounded-lg shadow-lg">
+          <div>
+            <img
+              src={randomImg}
+              className="w-72 h-56 rounded-t-md object-cover"
+            />
+          </div>
+          <div className="pl-4 mt-8">
+            <div className="font-lato text-2xl">{setName}</div>
+            <div>{productName}</div>
           </div>
         </div>
       </div>

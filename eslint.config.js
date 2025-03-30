@@ -11,7 +11,7 @@ export default [
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
-      process: true,
+      // process: true,
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -34,8 +34,9 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      "no-unused-vars": "warn",
-      "react/prop-types": "off",
+       "no-undef": "warn",
+       "no-unused-vars": "warn",
+       'react/prop-types': 'off',
     },
   },
 ]
