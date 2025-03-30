@@ -1,4 +1,3 @@
-import { blobFrom } from "node-fetch";
 import {useState, useEffect } from "react";
 
 const Card = (props) => {
