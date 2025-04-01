@@ -13,7 +13,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center p-8">
       <div className="relative flex items-center">
         <i className="ml-2 absolute fa-solid fa-magnifying-glass"></i>
         <input
@@ -21,7 +21,7 @@ const SearchBar = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for a product"
-          className="w-96 p-2 pl-8 rounded-md border border-slate-400"
+          className="max-md:!w-full shadow-lg max-w-96 p-2 pl-8 rounded-md border border-slate-400"
         />
         <i
           onClick={() => setSearchQuery("")}

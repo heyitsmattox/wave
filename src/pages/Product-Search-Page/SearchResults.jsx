@@ -91,6 +91,7 @@ const SearchResults = () => {
 
         {/* {loading && <p>Loading...</p>}
         {error && <p>{error}</p>} */}
+        
 
         <div className="flex flex-wrap justify-center">
           {products.length > 0 ? (
