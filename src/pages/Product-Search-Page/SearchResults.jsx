@@ -54,7 +54,7 @@ const SearchResults = () => {
 
   return (
     <>
-      <div className="flex justify-center">
+      <div className="p-8 flex justify-center">
       <div className="relative flex items-center">
         <i className="ml-2 absolute fa-solid fa-magnifying-glass"></i>
         <input
