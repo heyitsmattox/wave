@@ -64,7 +64,6 @@ const SignUpPage = () => {
               },
             ]}
             submitButtonLabel="Create an account"
-            // onSubmit={handleSubmit}
             onSubmit={async (fieldValues) => {
               if(!fieldValues.email.includes("@")) {
                 setError("Oops! It looks like your email is missing an '@' symbol. Please check and try again.");
