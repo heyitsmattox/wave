@@ -25,12 +25,6 @@ const Card = (props) => {
     setRandomImg(images[randomIdx]);
   }, []);
 
-
-
-
-
-
-
   return (
     <>
       <div className="p-4">

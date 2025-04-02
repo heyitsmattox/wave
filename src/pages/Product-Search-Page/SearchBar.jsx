@@ -32,7 +32,7 @@ const SearchBar = () => {
       <button
         onClick={handleSearch}
         disabled={loading}
-        className="flex bg-blue-400 p-2 px-4 rounded-lg ml-6 hover:bg-blue-500"
+        className="flex bg-emerald-300 p-2 px-4 rounded-lg ml-6 hover:bg-emerald-400"
       >
         {loading ? "Searching..." : "Search"}
       </button>

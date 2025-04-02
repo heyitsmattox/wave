@@ -1,8 +1,8 @@
-const ValueDisplay = ({ label, value }) => {
+const ValueDisplay = ({ label, value, font, size, color }) => {
   return (
     <div 
-    className="text-xl font-lato text-slate-400">
-      {label}: ${value}
+    className={`text-${size} font-${font} text-${color}`}>
+      {label} ${value}
     </div>
   );
 };
