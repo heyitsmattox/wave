@@ -7,7 +7,6 @@ import LoadingSpinner from "../../shared-components/LoadingSpinner";
 const SearchResults = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  // const searchQuery = searchParams.get("q") || "";
   const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -21,7 +20,7 @@ const SearchResults = () => {
 
     try {
       const response = await axios.get(`/api/products/search?q=${searchQuery}`);
-      setProducts(response.data.products || []); // Ensure it's an array
+      setProducts(response.data.products || []); 
       setNumOfResults(response.data.products.length);
     } catch (error) {
       console.error("Search request failed:", error);
@@ -41,8 +40,7 @@ const SearchResults = () => {
       setError(null);
       try {
         const response = await axios.get(`/api/products/search?q=${searchQuery}`);
-        setProducts(response.data.products || []); // Ensure it's an array
-        //setNumOfResults(response.data.products.length);
+        setProducts(response.data.products || []); 
       } catch (error) {
         console.error("Search request failed:", error);
         setError("Failed to fetch search results");
@@ -88,9 +86,6 @@ const SearchResults = () => {
             <h2 className="text-3xl font-playfair text-emerald-500">Search Results for &quot;{searchQuery}&quot;</h2>
    
        }
-
-        {/* {loading && <p>Loading...</p>}
-        {error && <p>{error}</p>} */}
 
         <div className="flex flex-wrap justify-center">
           {products.length > 0 ? (
