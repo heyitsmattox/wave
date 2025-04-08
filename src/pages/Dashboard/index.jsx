@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="pt-10 pl-10 bg-slate-100 opacity-80 w-full h-screen">
+      <div className="max-sm:!items-center flex flex-col pt-10 pl-10 bg-slate-100 opacity-80 w-full h-screen">
         <SearchBar />
         <PortFolioHeader
         textColor={"slate-500"}
@@ -32,3 +32,7 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+// this is a test on how well i like this keyboard or not
+//  this is a test on how well i like this keyboar or not
+// this is a test on how well i like this keyboard or not

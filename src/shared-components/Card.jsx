@@ -39,8 +39,8 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="p-4">
-        <div className="flex flex-col border border-slate-200 w-72 h-96 rounded-lg shadow-lg">
+      <div className="p-4 ">
+        <div className=" flex flex-col border border-slate-200 w-72 h-96 rounded-lg shadow-lg">
           <div>
             <img
               src={randomImg}

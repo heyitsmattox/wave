@@ -39,7 +39,7 @@ const SearchBar = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={placeholder}
-          className="max-md:!w-full shadow-lg max-w-96 p-2 pl-8 rounded-md border border-slate-400"
+          className="max-md:!w-full shadow-lg max-w-96 p-2 pl-8 rounded-md border border-slate-40 focus:outline-emerald-400"
         />
         <i
           onClick={() => setSearchQuery("")}
