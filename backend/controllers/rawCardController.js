@@ -7,8 +7,8 @@ console.log("Pokemon  TCG API key loaded:", process.env.POKEMON_TCG_API_KEY);
 
 const searchRawCards = async (req, res) => {
 const API_KEY = process.env.POKEMON_TCG_API_KEY;
-const query = req.query.q;
-const pageSize = 2;
+// const query = req.query.q;
+const pageSize = 6;
 
 
   try {

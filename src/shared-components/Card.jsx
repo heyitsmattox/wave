@@ -12,9 +12,13 @@ const Card = (props) => {
       product?.tcgplayer?.prices?.['1stEditionHolofoil']?.market ??
       product?.tcgplayer?.prices?.['unlimitedHolofoil']?.market ??
       product?.tcgplayer?.prices?.holofoil?.market ??
-      product?.tcgplayer?.prices?.reverseHolofoil?.market
-    );  
+      product?.tcgplayer?.prices?.reverseHolofoil?.market ??
+      product?.tcgplayer?.prices?.['1stEdition']?.market ??
+      product?.tcgplayer?.prices?.['unlimited']?.market ??
+      "No price found"
+    );
   }
+  
   const price = getPrice(product);
 
  useEffect(() => {
@@ -24,7 +28,6 @@ const Card = (props) => {
   const increaseQty = () => {
     setQty((prev) => prev + 1);
   };
-  console.log('value of get price', getPrice)
 
   return (
     <>
