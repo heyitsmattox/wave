@@ -4,7 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import searchRoutes from "./routes/searchRoutes.js";
 
-console.log("API Key in server.js file:", process.env.PRICECHARTING_API_KEY);
+console.log("TCG API Key from server file:", process.env.POKEMON_TCG_API_KEY);
 const app = express();
 
 
