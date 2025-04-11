@@ -5,9 +5,3 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.send('GET request to our homepage')
 });
-
-//define our route for dashboard
-
-//post route for adding a user
-
-//
