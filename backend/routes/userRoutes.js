@@ -5,3 +5,6 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.send('GET request to our homepage')
 });
+
+export default router;
+//create a route for when to invoke our fetchUser controller function
