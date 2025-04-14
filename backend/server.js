@@ -4,7 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import searchRoutes from "./routes/searchRoutes.js";
 import errorHandler from "./middlewares/errorMiddleware.js";
-import userRouter from "./routes/userRoutes.js";
+import usersRouter from "./routes/usersRoutes.js";
 
 console.log("TCG API Key from server file:", process.env.POKEMON_TCG_API_KEY);
 const app = express();
@@ -19,10 +19,12 @@ app.use(cors({
 app.use(errorHandler)
 app.use("/api", searchRoutes)
 //user router for when the client gets to the endpoint on any request.
-app.use("/api/users", userRouter);
+app.use('/api/v1/users', usersRouter);
 
 
-app.us
+
+
+
 
 const portNumber = 5011;
 app.listen(portNumber, () => {
