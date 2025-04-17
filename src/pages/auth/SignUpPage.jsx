@@ -22,6 +22,7 @@ const SignUpPage = () => {
         console.log("no active session...redirecting.");
         navigate("/sign-up");
       }
+  
     };
 
     getInitialSession();
