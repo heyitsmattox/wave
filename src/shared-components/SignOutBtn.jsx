@@ -9,7 +9,7 @@ const SignOutBtn = ({label, font}) => {
   async function signOut() {
     console.log("sign out button was clicked")
     await supabase.auth.signOut();
-    navigate("/sign-up")
+    navigate("/")
   }
  
 
