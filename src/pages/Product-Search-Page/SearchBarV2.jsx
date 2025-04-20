@@ -42,7 +42,7 @@ const SearchBarV2 = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={placeholder}
-          className="max-md:!w-full shadow-lg max-w-96 p-2 pl-8 rounded-md border border-slate-40 focus:outline-emerald-400"
+          className="max-md:!w-full shadow-lg max-w-96 p-2 pl-8 rounded-md border border-slate-40 focus:outline-indigo-400"
         />
         <i
           onClick={() => setSearchQuery("")}
@@ -53,7 +53,7 @@ const SearchBarV2 = () => {
       <button
         onClick={handleSearch}
         disabled={loading}
-        className="flex bg-emerald-300 p-2 px-4 rounded-lg ml-6 hover:bg-emerald-400"
+        className="flex bg-indigo-300 p-2 px-4 rounded-lg ml-6 hover:bg-indigo-400"
       >
         {loading ? "Searching..." : "Search"}
       </button>

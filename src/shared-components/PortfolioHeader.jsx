@@ -13,7 +13,7 @@ const PortFolioHeader = ({ input, label, placeholder, font, size, textColor }) =
           <input
             placeholder={placeholder}
             type={input.type}
-            className={`ml-1 text-${input.size} px-2 py-1 bg-slate-50 border focus:outline-emerald-400 border-slate-100 rounded-lg w-48 text-emerald-400`}
+            className={`ml-1 text-${input.size} px-2 py-1 bg-slate-50 border focus:outline-indgo-400 border-slate-100 rounded-lg w-48 text-indigo-500`}
             name={input.name}
             onChange={input.onChange}
           />
