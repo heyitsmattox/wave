@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="max-sm:!items-center flex flex-col pt-10 pl-10 bg-slate-100 opacity-80 w-full h-screen">
+      <div className="max-sm:!items-center flex flex-col pl-10 pr-10 bg-slate-100 opacity-80 w-full h-screen">
         {/* <SearchBar /> */}
         <Navbar />
         <SearchBarV2 />
