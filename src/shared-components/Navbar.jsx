@@ -1,12 +1,31 @@
 import SignOutBtn from "./SignOutBtn";
-import { useState  } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
-  const [ isClicked, setIsClicked ] = useState(false);
+  const [ isOpen, setIsOpen ] = useState(false);
+  const ref = useRef(null);
 
-  const handleMenuBtn = () => {
-    setIsClicked(true);
+  const handleClickOutside = (event) => {
+    if(ref.current && !ref.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [])
+
+
+ const handleMenuBtn = () => {
+  console.log('btn was clicked')
+  setIsOpen(true)
   }
+
+
+
 
   return (
     <>
@@ -19,8 +38,8 @@ const Navbar = () => {
           onClick={handleMenuBtn}
           className="fa-solid text-xl fa-bars text-slate-500">
             {
-              isClicked && (
-                <div className="bg-blue-400 p-10 h-10">
+              isOpen && (
+                <div ref={ref} className=" absolute bg-blue-400 p-10 h-10">
 
                 </div>
               )
