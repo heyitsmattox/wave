@@ -17,7 +17,7 @@ const SignOutBtn = ({label, font}) => {
     <div>
       <button
       onClick={signOut}
-      className={`font-${font} p-2 rounded-lg bg-indigo-300 text-white`}>{label}</button>
+      className={`font-${font} p-2 rounded-lg w-24 bg-indigo-600 text-white`}>{label}</button>
     </div>
   )
 };

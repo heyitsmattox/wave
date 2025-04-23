@@ -1,4 +1,5 @@
-import SignOutBtn from "./SignOutBtn";
+// import SignOutBtn from "../../shared-components/SignOutBtn";
+import NavbarDropDown from "./Navbar-Dropdown";
 import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
@@ -24,9 +25,6 @@ const Navbar = () => {
   setIsOpen(true)
   }
 
-
-
-
   return (
     <>
       <div className="pt-8 w-full border-b border-indigo-400 p-4">
@@ -39,7 +37,9 @@ const Navbar = () => {
           className="fa-solid text-xl fa-bars text-slate-500">
             {
               isOpen && (
-                <div ref={ref} className=" absolute bg-blue-400 p-10 h-10">
+                // <div ref={ref} className=" absolute bg-blue-400 p-10 h-10">
+                <div ref={ref} className=" absolute right-14">
+                  <NavbarDropDown />
 
                 </div>
               )

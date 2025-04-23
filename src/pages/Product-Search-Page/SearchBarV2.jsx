@@ -53,7 +53,7 @@ const SearchBarV2 = () => {
       <button
         onClick={handleSearch}
         disabled={loading}
-        className="flex bg-indigo-300 p-2 px-4 rounded-lg ml-6 hover:bg-indigo-400"
+        className="flex text-white bg-indigo-600 p-2 px-4 rounded-lg ml-6 hover:bg-indigo-700"
       >
         {loading ? "Searching..." : "Search"}
       </button>

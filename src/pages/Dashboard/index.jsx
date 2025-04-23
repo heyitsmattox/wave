@@ -1,7 +1,7 @@
 import PortFolioHeader from "../../shared-components/PortfolioHeader";
 import { useState } from "react";
 import SearchBarV2 from "../Product-Search-Page/SearchBarV2";
-import Navbar from "../../shared-components/Navbar";
+import Navbar from "../Navbar/index";
 
 
 const Dashboard = () => {
