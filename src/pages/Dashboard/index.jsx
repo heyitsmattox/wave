@@ -2,6 +2,7 @@ import PortFolioHeader from "../../shared-components/PortfolioHeader";
 import { useState } from "react";
 import SearchBarV2 from "../Product-Search-Page/SearchBarV2";
 import Navbar from "../Navbar/index";
+import Chart from "../Charts";
 
 
 const Dashboard = () => {
@@ -15,6 +16,7 @@ const Dashboard = () => {
         {/* <SearchBar /> */}
         <Navbar />
         <SearchBarV2 />
+        <div className="flex justify-between">
         <PortFolioHeader
         textColor={"slate-500"}
         size="md"
@@ -28,6 +30,9 @@ const Dashboard = () => {
           onChange: (e) => setPortfolioName(e.target.value)
         }}
         />
+        <Chart />
+
+        </div>
       </div>
     </>
   );

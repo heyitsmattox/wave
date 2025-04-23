@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Card from "../../shared-components/Card";
 import LoadingSpinner from "../../shared-components/LoadingSpinner";
+import Navbar from "../Navbar";
 
 const SearchResults = () => {
   const location = useLocation();
@@ -55,6 +56,7 @@ const SearchResults = () => {
 
   return (
     <>
+    <Navbar />
       <div className="p-8 flex justify-center">
       <div className="relative flex items-center">
         <i className="ml-2 absolute fa-solid fa-magnifying-glass"></i>
