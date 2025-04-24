@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config(); 
 import express from 'express';
 import cors from 'cors';
-import searchRoutes from "./routes/searchRoutes.js";
+import cardRoutes from "./routes/cardRoutes.js";
 import errorHandler from "./middlewares/errorMiddleware.js";
 import usersRouter from "./routes/usersRoutes.js";
 
@@ -17,7 +17,7 @@ app.use(cors({
 }));
 
 app.use(errorHandler)
-app.use("/api", searchRoutes)
+app.use("/api", cardRoutes)
 //user router for when the client gets to the endpoint on any request.
 app.use('/api/v1/users', usersRouter);
 
