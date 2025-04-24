@@ -7,14 +7,11 @@ console.log("Pokemon  TCG API key loaded:", process.env.POKEMON_TCG_API_KEY);
 
 const searchRawCards = async (req, res) => {
 const API_KEY = process.env.POKEMON_TCG_API_KEY;
-// const query = req.query.q;
 const pageSize = 6;
 
 
   try {
     const { q } = req.query;
-    //fetch(`https://api.pokemontcg.io/v2/cards?q=${encodeURIComponent(q)}`
-
     const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=${encodeURIComponent(q)}&pageSize=${pageSize}`, {
       headers: {
         'X-Api-Key': API_KEY, 
@@ -34,6 +31,16 @@ const pageSize = 6;
     res.status(500).json({ error: "Failed to fetch cards from Pokémon TCG API" });
   }
 };
+
+//TODO
+//1. Rewrite our rawCardController in a similar format as our usersController
+//2. Update the current state to be inside the method of fetchRawCards
+//3. create an getSingleCard method inside of our rawCardController
+//look into route parameters
+
+//4. we can use that route as we'll be obtaining the id of the card
+//5. We can then select each individual card -> take them to the new route
+//6. display the individual raw card component
 
 
 export default searchRawCards;

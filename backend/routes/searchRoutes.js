@@ -8,4 +8,6 @@ const router = express.Router();
 
 router.get("/cards", searchRawCards);
 
+//new route to get individual card
+
 export default router;
