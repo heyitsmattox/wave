@@ -8,11 +8,8 @@ const SearchBarV2 = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    console.log("handle search btn clicked")
     setLoading(true);
     if (!searchQuery.trim()) return;
-    // navigate(`/cards?q${encodeURIComponent(searchQuery)}`);
-    console.log(searchQuery)
     navigate(`/cards?q=${encodeURIComponent(searchQuery)}`);
 
   };

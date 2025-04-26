@@ -1,38 +1,71 @@
 import fetch from "node-fetch";
 import dotenv from "dotenv";
+import createHttpError from "http-errors";
 
 dotenv.config();
 
 console.log("Pokemon  TCG API key loaded:", process.env.POKEMON_TCG_API_KEY);
 
 const API_KEY = process.env.POKEMON_TCG_API_KEY;
-const pageSize = 6;
+const pageSize = 1; //keep at 1 for testing purposes.
 
 const cardsController = {
   fetchCards: async (req, res, next) => {
     try {
       const { q } = req.query;
-      const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=${encodeURIComponent(q)}&pageSize=${pageSize}`, {
-        headers: {
-          'X-Api-Key': API_KEY, 
+      const response = await fetch(
+        `https://api.pokemontcg.io/v2/cards?q=${encodeURIComponent(
+          q
+        )}&pageSize=${pageSize}`,
+        {
+          headers: {
+            "X-Api-Key": API_KEY,
+          },
         }
-      });
-    
+      );
+
       if (!response.ok) {
         throw new Error(`TCG API error: ${response.status}`);
       }
-    
-      const data = await response.json();
-      res.locals.cardData = data;
-      console.log("TCG API response received:", data);
-    
-      res.json(data);
-    } catch (error) {
-      console.error("Error fetching from TCG API:", error.message);
-      res.status(500).json({ error: "Failed to fetch cards from Pokémon TCG API" });
-    }
 
-  }
+      const cardData = await response.json();
+      res.locals.cardData = cardData;
+      console.log("TCG API response received:", cardData);
+
+      next();
+    } catch (error) {
+      return next(
+        createHttpError(
+          400,
+          "Could not fetch cards in cardsController.fetchCards"
+        )
+      );
+    }
+  },
+  fetchCard: async (req, res, next) => {
+    try {
+      const { cardId } = req.params;
+      const response = await fetch(
+        `https://api.pokemontcg.io/v2/cards/${cardId}`,
+        {
+          headers: {
+            "X-Api-Key": API_KEY,
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`TCG API error: ${response.status}`);
+      }
+      const card = await response.json();
+      console.log("Single card response:", card);
+
+      res.locals.cardData = card;
+      next();
+    } catch (error) {
+      console.error("Error fetching individual card:", error.message);
+      next(error);
+    }
+  },
 };
 
 export default cardsController;

@@ -36,7 +36,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     if (!searchQuery) return;
-    console.log('use effect hook ran')
+    //console.log('use effect hook ran')
     const fetchData = async () => {
       setLoading(true);
       setError(null);
@@ -92,7 +92,7 @@ const SearchResults = () => {
 
         <div className="flex flex-wrap justify-center">
           {
-            console.log('product value', products)
+            //console.log('product value', products)
           }
           {products.length > 0 ? (
             products.map((product) => <Card key={product.id} product={product} />)

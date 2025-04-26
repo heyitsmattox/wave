@@ -6,12 +6,15 @@ import express from 'express';
 const router = express.Router();
 
 router.get("/cards", cardsController.fetchCards, (req, res) => {
-  console.log(res.locals.cardData)
+  //console.log('res locals cardData --->', res.locals.cardData)
   res.status(200).json(res.locals.cardData)
 });
 
 
 
 //new route to get individual card
+router.get("/cards/:cardId", cardsController.fetchCard, (req, res) => {
+  res.status(200).json(res.locals.cardData);
+});
 
 export default router;

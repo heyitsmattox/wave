@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import CardShowPage from "../pages/Product-Search-Page/CardShowPage";
 
 const Card = (props) => {
   const { product } = props;
   const [qty, setQty] = useState(0);
 
-  console.log("product getting passed correctly", product )
+  //console.log("product getting passed correctly", product )
 
 
   const getPrice = (product) => {
@@ -33,12 +35,15 @@ const Card = (props) => {
     <>
       <div className="p-4 ">
         <div className=" flex flex-col border border-slate-200 w-72 h-96 rounded-lg shadow-lg">
+          <Link to={`/cards/${product.id}`} >
           <div>
             <img
               src={product.images.small}
               className=" mt-3 w-72 h-48 rounded-t-md object-contain"
-            />
+              />
           </div>
+ 
+          </Link>
           <div className="pl-4 mt-2">
             <div className="font-lato text-xl">{product.name}</div>
             <div>{product.set.name}</div>
