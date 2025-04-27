@@ -1,6 +1,7 @@
 // import SignOutBtn from "../../shared-components/SignOutBtn";
 import NavbarDropDown from "./Navbar-Dropdown";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [ isOpen, setIsOpen ] = useState(false);
@@ -30,7 +31,9 @@ const Navbar = () => {
       <div className="pt-8 w-full border-b border-indigo-400 p-4">
         <div className="flex justify-between">
           <i className="fa-solid text-3xl fa-wave-square flex text-amber-400">
+            <Link to={"/dashboard"}>
             <div className="text-3xl font-lato ml-4 text-indigo-400">Wave</div>
+            </Link>
           </i>
           <button 
           onClick={handleMenuBtn}

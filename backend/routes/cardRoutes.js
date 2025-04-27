@@ -11,7 +11,6 @@ router.get("/cards", cardsController.fetchCards, (req, res) => {
 });
 
 
-
 //new route to get individual card
 router.get("/cards/:cardId", cardsController.fetchCard, (req, res) => {
   res.status(200).json(res.locals.cardData);

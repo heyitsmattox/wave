@@ -18,7 +18,6 @@ app.use(cors({
 
 app.use(errorHandler)
 app.use("/api", cardRoutes)
-//user router for when the client gets to the endpoint on any request.
 app.use('/api/v1/users', usersRouter);
 
 
