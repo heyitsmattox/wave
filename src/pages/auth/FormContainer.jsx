@@ -6,7 +6,7 @@ const FormContainer = (props) => {
         <div className="w-[1200px] relative hidden md:flex ">
           <img
             className="bg-black object-cover h-screen w-full"
-            src="public/images/homescreen.png"
+            src="public/images/homescreenwave.JPG"
             alt="wave"
           />
         </div>
