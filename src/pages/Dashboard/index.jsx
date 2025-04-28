@@ -1,6 +1,6 @@
 import PortFolioHeader from "../../shared-components/PortfolioHeader";
 import { useState } from "react";
-import SearchBarV2 from "../Product-Search-Page/SearchBarV2";
+import SearchBar from "../Product-Search-Page/SearchBar";
 import Navbar from "../Navbar/index";
 import Chart from "../Charts";
 
@@ -12,10 +12,10 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="max-sm:!items-center flex flex-col pl-10 pr-10 bg-slate-100 opacity-80 w-full h-screen">
+      <div className="max-sm:!items-center flex flex-col pl-10 pr-10 bg-slate-900 opacity-80 w-full h-screen">
         {/* <SearchBar /> */}
         <Navbar />
-        <SearchBarV2 />
+        <SearchBar />
         <div className="flex justify-between">
         <PortFolioHeader
         textColor={"slate-500"}

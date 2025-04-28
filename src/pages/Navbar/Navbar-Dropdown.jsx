@@ -3,9 +3,11 @@ import SignOutBtn from "../../shared-components/SignOutBtn";
 const NavbarDropDown = () => {
   return (
     <>
-      <div className="bg-indigo-200 px-10 py-6 rounded-md shadow-md">
+      <div className="bg-slate-800 px-10 py-6 rounded-xl shadow-md">
           <ul className="text-sm flex flex-col justify-end">
-            <li className="text-indigo-600">My Portfolio</li>
+            <li className="text-gray-400">
+            <i className="text-xl text-indigo-400 fa-regular fa-chart-bar mr-1"></i>
+              My Portfolio</li>
             <li className="m-4">
               <SignOutBtn label="sign out" font="lato" />
             </li>

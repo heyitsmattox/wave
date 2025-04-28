@@ -17,6 +17,7 @@ const Chart = () => {
   ];
 
   return (
+    <div className="px-4 py-8 bg-slate-800 border border-slate-700 rounded-xl">
 <AreaChart width={730} height={250} data={data}
   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
   <defs>
@@ -36,6 +37,8 @@ const Chart = () => {
 <Area type="monotone" dataKey="uv" stroke="#4CAF50" fillOpacity={1} fill="url(#colorUv)" />
 <Area type="monotone" dataKey="pv" stroke="#8884d8" fillOpacity={1} fill="url(#colorPv)" />
 </AreaChart>
+
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ dotenv.config();
 console.log("Pokemon  TCG API key loaded:", process.env.POKEMON_TCG_API_KEY);
 
 const API_KEY = process.env.POKEMON_TCG_API_KEY;
-const pageSize = 1; //keep at 1 for testing purposes.
+const pageSize = 9; //keep at 1 for testing purposes.
 
 const cardsController = {
   fetchCards: async (req, res, next) => {

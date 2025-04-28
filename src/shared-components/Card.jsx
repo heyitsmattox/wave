@@ -34,12 +34,12 @@ const Card = (props) => {
   return (
     <>
       <div className="p-4 ">
-        <div className=" flex flex-col border border-slate-200 w-72 h-96 rounded-lg shadow-lg">
+        <div className="py-2 flex flex-col bg-slate-800 border border-slate-700 w-72 h-96 rounded-xl shadow-lg">
           <Link to={`/cards/${product.id}`} >
           <div>
             <img
               src={product.images.small}
-              className=" mt-3 w-72 h-48 rounded-t-md object-contain"
+              className=" mt-4 w-72 h-48 rounded-t-md object-contain"
               />
           </div>
  
