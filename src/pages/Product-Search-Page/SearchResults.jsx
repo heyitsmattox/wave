@@ -59,25 +59,25 @@ const SearchResults = () => {
     <div className="bg-slate-900 opacity-80">
     <Navbar />
       <div className="p-8 flex justify-center">
-      <div className="relative flex items-center">
+      <div className="relative flex items-center text-gray-400">
         <i className="ml-2 absolute fa-solid fa-magnifying-glass"></i>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for a product"
-          className="w-96 p-2 pl-8 rounded-md border border-slate-400"
+          className="w-96 p-2 pl-8 rounded-md border border-slate-700 bg-slate-800 text-gray-100"
           />
         <i
           onClick={() => setSearchQuery("")}
-          className="absolute right-4 fa-solid fa-circle-xmark text-slate-400 hover:text-red-300"
+          className="absolute right-4 fa-solid fa-circle-xmark  hover:text-red-300"
           ></i>
       </div>
 
       <button
         onClick={handleNewSearch}
         disabled={loading}
-        className="flex bg-indigo-300 p-2 px-4 rounded-lg ml-6 hover:bg-indigo-400 text-white"
+        className="flex bg-indigo-500 p-2 px-4 rounded-lg ml-6 hover:bg-indigo-700 text-white"
         >
         {loading ?  <LoadingSpinner /> : "Search"}
       </button>
@@ -87,7 +87,7 @@ const SearchResults = () => {
       <div className="w-full max-w-5xl">
        {
          
-         <h2 className="text-3xl font-playfair text-emerald-500">Search Results for &quot;{searchQuery}&quot;</h2>
+         <h2 className="text-3xl font-playfair text-emerald-400">Search Results for &quot;{searchQuery}&quot;</h2>
          
         }
 

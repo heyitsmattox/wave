@@ -8,24 +8,23 @@ const Card = (props) => {
 
   //console.log("product getting passed correctly", product )
 
-
   const getPrice = (product) => {
     return (
-      product?.tcgplayer?.prices?.['1stEditionHolofoil']?.market ??
-      product?.tcgplayer?.prices?.['unlimitedHolofoil']?.market ??
+      product?.tcgplayer?.prices?.["1stEditionHolofoil"]?.market ??
+      product?.tcgplayer?.prices?.["unlimitedHolofoil"]?.market ??
       product?.tcgplayer?.prices?.holofoil?.market ??
       product?.tcgplayer?.prices?.reverseHolofoil?.market ??
-      product?.tcgplayer?.prices?.['1stEdition']?.market ??
-      product?.tcgplayer?.prices?.['unlimited']?.market ??
+      product?.tcgplayer?.prices?.["1stEdition"]?.market ??
+      product?.tcgplayer?.prices?.["unlimited"]?.market ??
       "No price found"
     );
-  }
-  
+  };
+
   const price = getPrice(product);
 
- useEffect(() => {
-  getPrice();
- })
+  useEffect(() => {
+    getPrice();
+  });
 
   const increaseQty = () => {
     setQty((prev) => prev + 1);
@@ -33,33 +32,39 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="p-4 ">
-        <div className="py-2 flex flex-col bg-slate-800 border border-slate-700 w-72 h-96 rounded-xl shadow-lg">
-          <Link to={`/cards/${product.id}`} >
-          <div>
-            <img
-              src={product.images.small}
-              className=" mt-4 w-72 h-48 rounded-t-md object-contain"
+      <div className="gap-6 p-6">
+        <div className="py-2 flex flex-col bg-slate-800 border  border-slate-700 w-72 h-96 rounded-2xl shadow-lg">
+          <Link to={`/cards/${product.id}`}>
+          {/* Product image section */}
+            <div>
+              <img
+                src={product.images.small}
+                className=" mt-4 w-72 h-48 rounded-t-md object-contain"
               />
-          </div>
- 
+            </div>
           </Link>
           <div className="pl-4 mt-2">
-            <div className="font-lato text-xl">{product.name}</div>
-            <div>{product.set.name}</div>
-            <div className="flex">
-            <div>{product.rarity}</div>
-            <div className="pl-2">#{product.number}</div>
+          {/* Product name, rarity and set name section */}
+            <div className="font-semibold text-gray-100 font-lato text-xl">
+              {product.name}
+            </div>
+            <div className="text-gray-400 text-sm">{product.set.name}</div>
+            <div className="flex text-gray-400 text-sm">
+              <div>{product.rarity}</div>
+              <div className="pl-2">#{product.number}</div>
             </div>
           </div>
-          <div className="mt-auto pl-4 flex flex-col  font-playfair ">
+          {/* Price, qty and button section */}
+          <div className="mt-auto pl-4 flex flex-col  font-playfair text-gray-300 text-sm font-medium">
             <div>${price}</div>
             <div className="flex justify-between mb-1">
               <div>Qty: {qty}</div>
-              <button 
-              onClick={increaseQty}
-              className="pr-4 text-2xl fa-solid fa-circle-plus text-emerald-500"></button>
+              <button
+                onClick={increaseQty}
+                className="pr-4 text-2xl fa-solid fa-circle-plus text-emerald-500"
+              ></button>
             </div>
+
           </div>
         </div>
       </div>

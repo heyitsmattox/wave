@@ -7,7 +7,7 @@ const NavbarDropDown = () => {
           <ul className="text-sm flex flex-col justify-end">
             <li className="text-gray-400">
             <i className="text-xl text-indigo-400 fa-regular fa-chart-bar mr-1"></i>
-              My Portfolio</li>
+              Portfolio</li>
             <li className="m-4">
               <SignOutBtn label="sign out" font="lato" />
             </li>

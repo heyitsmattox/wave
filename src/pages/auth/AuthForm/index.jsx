@@ -21,7 +21,7 @@ const AuthForm = (props) => {
   return (
     <>
       <form
-        className="font-lato m-4 p-4 bg-white border border-slate-300 rounded-lg"
+        className="font-lato m-4 py-8 px-10 pb-12 bg-slate-800 border border-slate-300 rounded-lg"
         onSubmit={async (e) => {
           e.preventDefault();
           if (onSubmit) {
@@ -54,7 +54,7 @@ const AuthForm = (props) => {
         <button
           type="submit"
           className="relative flex justify-center items-center bg-blue-700 text-white p-5 w-full rounded-lg 
-py-3 shadow-md mt-4"
+py-3 shadow-md mt-6"
           onSubmit={() =>fieldValues}
         >
           {submitButtonLabel}
