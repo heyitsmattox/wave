@@ -2,7 +2,7 @@ import ValueDisplay from "./ValueDisplay";
 import { useState } from "react";
 
 const PortFolioHeader = ({ input, label, placeholder }) => {
-  const [value, setValue ] = useState(64754)
+  // const [value, setValue ] = useState(64754)
 
 
   return (
@@ -18,12 +18,7 @@ const PortFolioHeader = ({ input, label, placeholder }) => {
             onChange={input.onChange}
           />
         </div>
-        <ValueDisplay 
-        font="lato"
-        size="xl"
-        color="slate-400"
-        value={value}
-        />
+       
       </div>
     </>
   );

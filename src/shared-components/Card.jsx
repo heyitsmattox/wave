@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CardShowPage from "../pages/Product-Search-Page/CardShowPage";
 
 const Card = (props) => {
-  const { product } = props;
+  const { product, portfolioValue,  setPortfolioValue } = props;
   const [qty, setQty] = useState(0);
 
   //console.log("product getting passed correctly", product )
@@ -26,16 +26,26 @@ const Card = (props) => {
     getPrice();
   });
 
+
   const increaseQty = () => {
     setQty((prev) => prev + 1);
+    if (product.id) {
+      setPortfolioValue(
+        (prev) =>
+          prev + product.tcgplayer.prices.holofoil.market ||
+          prev + product.cardmarket.prices.averageSellPrice
+      );
+
+    }
   };
+
 
   return (
     <>
       <div className="gap-6 p-6">
         <div className="py-2 flex flex-col bg-slate-800 border  border-slate-700 w-72 h-96 rounded-2xl shadow-lg">
           <Link to={`/cards/${product.id}`}>
-          {/* Product image section */}
+            {/* Product image section */}
             <div>
               <img
                 src={product.images.small}
@@ -44,7 +54,7 @@ const Card = (props) => {
             </div>
           </Link>
           <div className="pl-4 mt-2">
-          {/* Product name, rarity and set name section */}
+            {/* Product name, rarity and set name section */}
             <div className="font-semibold text-gray-100 font-lato text-xl">
               {product.name}
             </div>
@@ -64,7 +74,6 @@ const Card = (props) => {
                 className="pr-4 text-2xl fa-solid fa-circle-plus text-emerald-500"
               ></button>
             </div>
-
           </div>
         </div>
       </div>

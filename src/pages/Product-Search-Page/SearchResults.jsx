@@ -5,6 +5,7 @@ import Card from "../../shared-components/Card";
 import LoadingSpinner from "../../shared-components/LoadingSpinner";
 import Navbar from "../Navbar";
 
+
 const SearchResults = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -12,6 +13,9 @@ const SearchResults = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [portfolioValue, setPortfolioValue] = useState(0)
+
+
 
 
 
@@ -82,9 +86,18 @@ const SearchResults = () => {
         {loading ?  <LoadingSpinner /> : "Search"}
       </button>
     </div>
-
+      {/* Area where value of portfolio section */}
+      <div className="px-4 sm:px-8 lg:px-10">
+      <div className="flex bg-slate-800 p-4 max-w-64 rounded-xl  border border-slate-700">
+        <span className="text-xl text-gray-400">
+        <i className="fa-solid fa-bolt text-indigo-400 mr-1"></i>
+          Portfolio Value</span>
+        <div className="text-emerald-400 text-lg ml-2">${`${portfolioValue.toFixed(2)}`}</div>
+      </div>
+      </div>
     <div className="flex justify-center py-24">
       <div className="w-full max-w-5xl">
+
        {
          
          <h2 className="text-3xl font-playfair text-emerald-400">Search Results for &quot;{searchQuery}&quot;</h2>
@@ -92,11 +105,8 @@ const SearchResults = () => {
         }
 
         <div className="flex flex-wrap justify-center">
-          {
-            //console.log('product value', products)
-          }
           {products.length > 0 ? (
-            products.map((product) => <Card key={product.id} product={product} />)
+            products.map((product) => <Card key={product.id} product={product} portfolioValue={portfolioValue} setPortfolioValue={setPortfolioValue} />)
           ) : (
             null
           )}
