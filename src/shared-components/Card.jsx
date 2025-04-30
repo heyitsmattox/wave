@@ -6,7 +6,7 @@ const Card = (props) => {
   const { product, portfolioValue,  setPortfolioValue } = props;
   const [qty, setQty] = useState(0);
 
-  //console.log("product getting passed correctly", product )
+  console.log("product getting passed correctly", product )
 
   const getPrice = (product) => {
     return (
@@ -33,7 +33,7 @@ const Card = (props) => {
       setPortfolioValue(
         (prev) =>
           prev + product.tcgplayer.prices.holofoil.market ||
-          prev + product.cardmarket.prices.averageSellPrice
+          prev + product.cardmarket.prices.averageSellPrice || console.log("no price available")
       );
 
     }
