@@ -66,16 +66,23 @@ const cardsController = {
       next(error);
     }
   },
+  //create our create method
+  addToPortfolio: async ( req, res, next) => {
+    const { user_id, product_id, qty } = req.body;
+    const command = `INSERT INTO portfolio_items (user_id, product_id, qty) VALUES ($1, $2, $3) RETURNING *`;
+    const values = [ user_id, product_id, qyt ];
+    try {
+
+    } catch (error) {
+      console.error("Error adding item to portfolio", error,message)
+      next(error)
+    }
+  }
 };
 
 export default cardsController;
 
 //TODO
-//1. Rewrite our rawCardController in a similar format as our usersController
-//2. Update the current state to be inside the method of fetchRawCards
-//3. create an getSingleCard method inside of our rawCardController
-//look into route parameters
-
-//4. we can use that route as we'll be obtaining the id of the card
-//5. We can then select each individual card -> take them to the new route
-//6. display the individual raw card component
+//create a method that saves the individual card to our database
+//create a route to utilize that new method we created
+//make a call to our api once the user clicks on the plus button
