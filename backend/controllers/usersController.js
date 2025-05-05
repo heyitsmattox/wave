@@ -25,6 +25,7 @@ const usersController =  {
       //res.locals is an object from express to store our new data between middleware
       res.locals.newUser = newUser.rows[0]; 
       //our new property should be available to any middleware now
+      console.log("new user data", res.locals.newUser)
       return next();
     } catch (err) {
       console.error("Error creating user:", err);

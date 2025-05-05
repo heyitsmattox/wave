@@ -10,10 +10,19 @@ router.get("/cards", cardsController.fetchCards, (req, res) => {
   res.status(200).json(res.locals.cardData)
 });
 
+router.post("/portfolio", cardsController.addToPortfolio, (req, res) => {
+  res.status(201).json(res.locals.newItemToPortfolio)
+});
+
+router.get("/portfolio", cardsController.fetchCardsInPortfolio, (req, res) => {
+  res.status(200).json(res.locals.portfolioData)
+})
 
 //new route to get individual card
 router.get("/cards/:cardId", cardsController.fetchCard, (req, res) => {
   res.status(200).json(res.locals.cardData);
 });
+
+
 
 export default router;

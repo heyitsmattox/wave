@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import createHttpError from "http-errors";
+import db from "../database/db.js";
 
 dotenv.config();
 
@@ -68,16 +69,34 @@ const cardsController = {
   },
   //create our create method
   addToPortfolio: async ( req, res, next) => {
-    const { user_id, product_id, qty } = req.body;
+    const {product_id, qty } = req.body;
+    const user_id = res.locals.newUser.id;
     const command = `INSERT INTO portfolio_items (user_id, product_id, qty) VALUES ($1, $2, $3) RETURNING *`;
-    const values = [ user_id, product_id, qyt ];
+    const values = [ user_id, product_id, qty ];
     try {
-
+      //should add our new item to our database
+      const newItemToPortfolio = await db.query(command, values)
+      //adding new item to our res.locals object
+      res.locals.newItemToPortfolio = newItemToPortfolio.rows[0];
+      console.log("new item added", res.locals.newItemToPortfolio)
+      return next();
     } catch (error) {
       console.error("Error adding item to portfolio", error,message)
       next(error)
     }
+  },
+  fetchCardsInPortfolio: async (req, res, next) => {
+    try {
+      const command = `SELECT * FROM portfolio_items`;
+      const { rows } = await db.query(command);
+      console.log("Items in portfolio", rows);
+      res.locals.portfolioData = rows;
+    } catch (error) {
+      console.error("Failed to fetch the portfolio_items")
+      next(error)
+    }
   }
+
 };
 
 export default cardsController;
