@@ -71,6 +71,12 @@ const cardsController = {
   addToPortfolio: async ( req, res, next) => {
     const {product_id, qty } = req.body;
     const user_id = res.locals.newUser.id;
+
+    // Input validation
+    if (!product_id || !qty || qty < 1) {
+      return next(createHttpError(400, 'Invalid input: product_id and positive qty are required'));
+    }
+
     const command = `INSERT INTO portfolio_items (user_id, product_id, qty) VALUES ($1, $2, $3) RETURNING *`;
     const values = [ user_id, product_id, qty ];
     try {
@@ -81,19 +87,21 @@ const cardsController = {
       console.log("new item added", res.locals.newItemToPortfolio)
       return next();
     } catch (error) {
-      console.error("Error adding item to portfolio", error,message)
+      console.error("Error adding item to portfolio", error.message)
       next(error)
     }
   },
   fetchCardsInPortfolio: async (req, res, next) => {
     try {
-      const command = `SELECT * FROM portfolio_items`;
-      const { rows } = await db.query(command);
-      console.log("Items in portfolio", rows);
+      const user_id = res.locals.newUser.id;
+      const command = `SELECT * FROM portfolio_items WHERE user_id = $1`;
+      const { rows } = await db.query(command, [user_id]);
+      console.log("Items in portfolio:", rows);
       res.locals.portfolioData = rows;
+      return next();
     } catch (error) {
-      console.error("Failed to fetch the portfolio_items")
-      next(error)
+      console.error("Failed to fetch portfolio items:", error.message);
+      return next(createHttpError(500, 'Failed to fetch portfolio items'));
     }
   }
 
