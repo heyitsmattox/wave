@@ -1,4 +1,9 @@
-const FormContainer = (props) => {
+interface FormContainerProps {
+children: any
+}
+
+
+const FormContainer = (props: FormContainerProps) => {
   const { children } = props;
   return (
     <>

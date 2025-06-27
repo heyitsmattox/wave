@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignInPage from "./pages/auth/SigninPage";
+import SignInPage from "./pages/auth/SignInPage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import Dashboard from "./pages/Dashboard";
 // import SearchResults from "./pages/Product-Search-Page/SearchResults";
 import SearchResults from "./pages/Product-Search-Page/SearchResults";
 import CardShowPage from "./pages/Product-Search-Page/CardShowPage";
-import Card from "./shared-components/Card";
+// import Card from "./shared-components/Card";
 
 
 function App() {
@@ -21,7 +21,6 @@ function App() {
           <Route path="/cards/:cardId" element={<CardShowPage/>} />
         </Routes>
       </BrowserRouter>
-
     </>
   );
 }

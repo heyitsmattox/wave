@@ -1,4 +1,4 @@
-const Field = (props) => {
+const Field = (props: any) => {
   const { label, type, onChange, fieldValues } = props;
 
   return (

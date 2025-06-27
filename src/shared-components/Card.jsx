@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CardShowPage from "../pages/Product-Search-Page/CardShowPage";
+import { addToPortfolio } from "../services/portfolio";
 
 const Card = (props) => {
   const { product, portfolioValue,  setPortfolioValue } = props;
@@ -25,6 +26,16 @@ const Card = (props) => {
   useEffect(() => {
     getPrice();
   });
+
+
+  const handleAddToPortfolio = async () => {
+    try {
+      await addToPortfolio(card.id, 1);
+      // Handle success
+    } catch (error) {
+      // Handle error
+    }
+  };
 
 
   const increaseQty = () => {

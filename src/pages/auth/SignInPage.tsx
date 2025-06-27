@@ -1,16 +1,19 @@
 import AuthForm from "./AuthForm";
 import FormContainer from "./FormContainer";
+import supabase  from "../../services/supabase-client";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import supabase from "../../services/supabase-client";
 import { useState } from "react";
+
+
+
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const login = async (fieldValues) => {
+  const login = async (fieldValues: { email: string, password: string}) => {
     console.log("attempting to login with:", {
       email: fieldValues.email,
       password: fieldValues.password,
@@ -30,7 +33,7 @@ const SignInPage = () => {
     return { success: true, data };
   };
 
-  const handleSubmit = async (fieldValues) => {
+  const handleSubmit = async (fieldValues: { email: string, password: string }) => {
     setEmail(fieldValues.email);
     setPassword(fieldValues.password);
 
@@ -44,6 +47,8 @@ const SignInPage = () => {
     }
   };
 
+  
+
   return (
     <>
       <FormContainer>
@@ -53,14 +58,10 @@ const SignInPage = () => {
               {
                 label: "email",
                 type: "email",
-                value: email,
-                onChange: (e) => setEmail(e.target.value),
               },
               {
                 label: "password",
                 type: "password",
-                value: password,
-                onChange: (e) => setPassword(e.target.value),
               },
             ]}
             submitButtonLabel="sign in"

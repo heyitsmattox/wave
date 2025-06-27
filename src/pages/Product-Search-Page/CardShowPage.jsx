@@ -5,9 +5,10 @@ import Navbar from "../Navbar/index.jsx";
 
 const CardShowPage = () => {
   const { cardId } = useParams();
+  // const [state, setState] = useState<number | null>(null);
   const [card, setCard] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchCard = async () => {
