@@ -1,4 +1,4 @@
-import SignOutBtn from "../../shared-components/SignOutBtn";
+import SignOutBtn from "../../shared-components/SignOutBtn.tsx"
 
 const NavbarDropDown = () => {
   return (

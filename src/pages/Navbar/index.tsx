@@ -7,8 +7,8 @@ const Navbar = () => {
   const [ isOpen, setIsOpen ] = useState(false);
   const ref = useRef(null);
 
-  const handleClickOutside = (event) => {
-    if(ref.current && !ref.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if(ref.current || event) {
       setIsOpen(false);
     }
   };
@@ -18,6 +18,7 @@ const Navbar = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
+ 
   }, [])
 
 
@@ -35,19 +36,15 @@ const Navbar = () => {
             <div className="text-3xl font-lato ml-4 text-indigo-400">Wave</div>
             </Link>
           </i>
-          <button 
+        <button 
           onClick={handleMenuBtn}
           className="fa-solid text-xl fa-bars text-slate-500">
-            {
-              isOpen && (
-                // <div ref={ref} className=" absolute bg-blue-400 p-10 h-10">
-                <div ref={ref} className=" absolute right-14">
-                  <NavbarDropDown />
-
-                </div>
-              )
-            }
-          </button>
+        </button>
+        {isOpen && (
+          <div ref={ref} className="absolute right-14 top-16">
+            <NavbarDropDown />
+          </div>
+        )}
         </div>
       </div>
     </>

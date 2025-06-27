@@ -1,8 +1,15 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import supabase from "../services/supabase-client";
 
 
-const SignOutBtn = ({label, font}) => {
+interface SignOutBtnProps {
+  label: string,
+  font: string
+}
+
+const SignOutBtn = ({ label, font }: SignOutBtnProps) => {
+
+
 
   const navigate = useNavigate();
 
